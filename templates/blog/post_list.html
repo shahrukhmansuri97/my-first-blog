@@ -8,22 +8,13 @@
     <header>
         <h1><a href="/">Django Blog</a></h1>
     </header>
-    <article>
-        <time>Published:07.01.2022, 23:18</time>
-        <h2><a href="">My First Post</a></h2>
-        <p>HTML is a code that is interpreted by your web browser – such as Chrome, Firefox or Safari – to display a web page for the user.
-            HTML stands for "HyperText Markup Language". HyperText means it's a type of text that supports hyperlinks between pages. Markup means we have taken a document and marked it up with code to tell something (in this case, a browser) how to interpret the page.</p>
-    </article>
-
-    <article>
-        <time>Published:07.01.2022, 23:23</time>
-        <h2><a href="">My Second Blog</a></h2>
-        <p>Each HTML page is also divided into two elements: head and body.
-            head is an element that contains information about the document that is not displayed on the screen.
-            body is an element that contains everything else that is displayed as part of the web page.</p>
-    </article>
-
-
+    {% for post in posts %}
+        <article>
+            <time>Published:{{ post.published_date}}</time>
+            <h2><a href="">{{ post.title}}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </article>
+    {% endfor %}
 
 </body>
 </html>
